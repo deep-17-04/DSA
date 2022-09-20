@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class AllPalindrome {
 
-    // Returns true if str is palindrome, else false
+    // Returns true if str is palindrome, else false.
     static boolean checkPalindrome(String str) {
+
         int len = str.length();
         len--;
         for (int i = 0; i < len; i++) {
@@ -42,21 +43,21 @@ public class AllPalindrome {
         for (int i = index; i < len; ++i) {
             str = str + s.charAt(i);
 
-            // check whether the substring is palindromic or not
+            // Check whether the substring is palindromic or not
             if (checkPalindrome(str)) {
 
-                // if palindrome add it to temp list
+                // If palindrome add it to temp list
                 temp.add(str);
 
                 if (i + 1 < len) {
-                    // recurr to get all the palindromic partitions for the substrings
+                    // Recurr to get all the palindromic partitions for the substrings
                     v = addStrings(v, s, temp, i + 1);
                 } else {
-                    // if end of the string is reached add temp to v
+                    // If end of the string is reached add temp to v
                     v.add(temp);
                 }
 
-                // temp is reinitialize with the current i.
+                // Temp is reinitialize with the current i.
                 temp = new ArrayList<>(current);
             }
         }
@@ -66,17 +67,16 @@ public class AllPalindrome {
     // Generates all palindromic partitions of 's' and stores the result in 'v'.
     static void partition(String s, ArrayList<ArrayList<String>> v) {
 
-        // temporary ArrayList to store each palindromic string
+        // Temporary ArrayList to store each palindromic string
         ArrayList<String> temp = new ArrayList<>();
 
-        // calling addString method it adds all the palindromic partitions to v
+        // Calling addString method it adds all the palindromic partitions to v
         v = addStrings(v, s, temp, 0);
 
-        // printing the solution
+        // Printing the solution
         printSolution(v);
     }
 
-    // Driver code
     // Time Complexity - O(n^2), Auxillary Space - O(n)
     public static void main(String args[]) {
 

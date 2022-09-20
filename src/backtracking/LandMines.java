@@ -15,8 +15,6 @@ public class LandMines {
     }
 
     static int R = 12, C = 10;
-    // These arrays are used to get row and column numbers of 4 neighbours of a
-    // given cell
     static int rowNum[] = { -1, 0, 0, 1 };
     static int colNum[] = { 0, -1, 1, 0 };
 
@@ -37,19 +35,18 @@ public class LandMines {
         for (i = 0; i < R; i++) {
             for (j = 0; j < C; j++) {
 
-                // if a landmines is found
+                // If a landmines is found
                 if (mat[i][j] == 0) {
 
-                    // mark all adjacent cells
+                    // Mark all adjacent cells
                     for (int k = 0; k < 4; k++)
-                        if (isValid(i + rowNum[k],
-                                j + colNum[k]))
+                        if (isValid(i + rowNum[k], j + colNum[k]))
                             mat[i + rowNum[k]][j + colNum[k]] = -1;
                 }
             }
         }
 
-        // mark all found adjacent cells as unsafe
+        // Mark all found adjacent cells as unsafe
         for (i = 0; i < R; i++) {
             for (j = 0; j < C; j++) {
                 if (mat[i][j] == -1)
@@ -75,10 +72,10 @@ public class LandMines {
 
         while (!q.isEmpty()) {
 
-            // gives head element
+            // Gives head element
             Key k = q.peek();
 
-            // removes head element
+            // Removes head element
             q.poll();
 
             int d = dist[k.x][k.y];
@@ -98,10 +95,10 @@ public class LandMines {
             }
         }
 
-        // stores minimum cost of shortest path so far
+        // Stores minimum cost of shortest path so far
         int ans = Integer.MAX_VALUE;
 
-        // start from first column and take minimum
+        // Start from first column and take minimum
         for (i = 0; i < R; i++) {
             if (mat[i][C - 1] == 1
                     && dist[i][C - 1] != -1) {
@@ -116,10 +113,9 @@ public class LandMines {
             System.out.println("Length of shortest safe route is " + ans);
     }
 
-    // Driver code
     public static void main(String[] args) {
 
-        // input matrix with landmines shown with number 0
+        // Input matrix with landmines shown with number 0
         int mat[][] = { { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
                 { 1, 0, 1, 1, 1, 1, 1, 1, 1, 1 },
                 { 1, 1, 1, 0, 1, 1, 1, 1, 1, 1 },
@@ -133,7 +129,6 @@ public class LandMines {
                 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
                 { 1, 1, 1, 0, 1, 1, 1, 1, 1, 1 } };
 
-        // find shortest path
         findShortestPath(mat);
     }
 }
