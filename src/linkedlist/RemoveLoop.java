@@ -49,7 +49,6 @@ public class RemoveLoop {
                 node = node.next;
             }
         }
-
         return false;
     }
 
