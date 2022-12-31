@@ -29,8 +29,7 @@ public class RainWater {
                 int distance = i - stack.peek() - 1;
 
                 // Calculate the min. height
-                int min_height = Math.min(height[stack.peek()], height[i])
-                        - pop_height;
+                int min_height = Math.min(height[stack.peek()], height[i]) - pop_height;
 
                 ans += distance * min_height;
             }
