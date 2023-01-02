@@ -53,7 +53,7 @@ public class RecursionSort {
         System.out.println("Stack elements before sorting: ");
         printStack(s);
         sortStack(s);
-        System.out.println(" \n\nStack elements after sorting:");
+        System.out.println("Stack elements after sorting:");
         printStack(s);
     }
 }
